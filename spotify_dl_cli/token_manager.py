@@ -4,7 +4,7 @@ import time
 import requests
 from pathlib import Path
 from typing import Optional
-from spotify_dl_cli.http_client.constants import BASE_HEADERS
+from spotify_dl_cli.http_client.consts import BASE_HEADERS
 from spotify_dl_cli.sp_auth.pkce import SpotifyAuthPKCE
 from spotify_dl_cli.sp_auth.refresh_token_payload import RefreshTokenPayload
 from spotify_dl_cli.sp_auth.tokens import SpotifyTokens

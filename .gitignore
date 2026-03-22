@@ -4,3 +4,4 @@ __pycache__/
 /.venv
 /*.egg-info
 /build
+spotify_dl_cli/playplay_emulator*/sp_client*

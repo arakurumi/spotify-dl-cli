@@ -3,14 +3,14 @@ from humanize import precisedelta
 from datetime import timedelta
 from pathlib import Path
 from spotify_dl_cli.clt_playlist.playlist_client import PlaylistClient
-from spotify_dl_cli.resolve_exe_path import bundled_exe_path
+from spotify_dl_cli.resolve_exe_path import bundled_dll_path
 from spotify_dl_cli.config import default_tokens_path
 from spotify_dl_cli.sp_auth.constants import CLIENT_ID
 from spotify_dl_cli.sp_downloader.downloader import download_track
 from spotify_dl_cli.parse_args import parse_args
 from spotify_dl_cli.clt_playplay.playplay_client import PlayPlayClient
 from spotify_dl_cli.http_client.http_client import HttpClient
-from spotify_dl_cli.playplay_emulator.keygen import PlayPlayKeygen
+from spotify_dl_cli.playplay_emulator5.keygen import PlayPlayKeygen
 from spotify_dl_cli.clt_extended_metadata.extended_metadata_client import (
     ExtendedMetadataClient,
 )
@@ -58,10 +58,10 @@ def main() -> None:
 
     audio_format = AUDIO_FORMATS[args.quality]
 
-    exe_path = bundled_exe_path()
-    logger.debug("Using sp_client executable: %s", exe_path)
+    exe_path = bundled_dll_path()
+    logger.debug("Using sp_client dll: %s", exe_path)
 
-    keygen = PlayPlayKeygen(exe_path.read_bytes())
+    keygen = PlayPlayKeygen(exe_path)
     sp_endpoints = resolve_spotify_endpoints()
 
     if not sp_endpoints.spclient:
@@ -106,12 +106,12 @@ def main() -> None:
     tracks = metadata.fetch_tracks(all_track_uris)
 
     for uri, track in tracks.items():
+        duration_str = precisedelta(timedelta(milliseconds=track.duration))
+
         logger.info("Track    : %s", track.name)
         logger.info("Artist   : %s", ", ".join(a.name for a in track.artist))
         logger.info("Album    : %s", track.album.name)
-        logger.info(
-            "Duration : %s", precisedelta(timedelta(milliseconds=track.duration))
-        )
+        logger.info("Duration : %s", duration_str)
 
         download_track(
             client,

@@ -1,7 +1,7 @@
 import requests
 from typing import List, NamedTuple
 from urllib.parse import urlparse
-from spotify_dl_cli.http_client.constants import BASE_HEADERS
+from spotify_dl_cli.http_client.consts import BASE_HEADERS
 
 
 class SpotifyEndpoints(NamedTuple):
