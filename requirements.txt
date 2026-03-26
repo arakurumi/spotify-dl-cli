@@ -6,4 +6,4 @@ mutagen
 platformdirs
 pycryptodome
 tenacity
-unplayplay @ git+https://github.com/cycyrild/another_unplaplay.git
+unplayplay @ git+https://github.com/cycyrild/another-unplayplay.git
