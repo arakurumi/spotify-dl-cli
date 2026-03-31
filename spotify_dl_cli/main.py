@@ -71,7 +71,7 @@ def main() -> None:
     client = HttpClient(access_token)
     metadata = ExtendedMetadataClient(sp_client_base, client)
     resolver = StorageResolverClient(sp_client_base, client)
-    playplay = PlayplayClient(sp_client_base, PLAYPLAY_TOKEN.VALUE, client)
+    playplay = PlayplayClient(sp_client_base, PLAYPLAY_TOKEN, client)
     playlist_client = PlaylistClient(sp_client_base, client)
 
     all_track_uris = resolve_track_uris(args.uris, playlist_client)
