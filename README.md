@@ -4,10 +4,15 @@
 
 The project demonstrates how native routines embedded in a protected Windows application can be analyzed and executed through CPU emulation to understand parts of a media delivery workflow.
 
-> This project is the result of a reverse engineering study of a proprietary client's authentication and media processing mechanisms, from authorization to native routine execution involved in playback.
+> [!CAUTION]
+High risk of being banned: use a different account
+
 
 > [!WARNING]
 This project is **not functional out of the box**. Some required components cannot be included due to legal restrictions. It is provided **for exploration and educational purposes only**.
+
+**Key generator has been migrated to another repository** \
+https://github.com/cycyrild/another-unplayplay
 
 ## Latest improvements
 Changes
